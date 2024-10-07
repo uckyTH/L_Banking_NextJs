@@ -15,6 +15,7 @@ import Link from "next/link";
 import { sidebarLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import Footer from "./Footer";
 
 const MoblieNavbar = ({ user }: MobileNavProps) => {
   const pathName = usePathname();
@@ -36,7 +37,7 @@ const MoblieNavbar = ({ user }: MobileNavProps) => {
         >
           <Link
             href={"/"}
-            className="flex mb-12 cursor-pointer items-center gap-2"
+            className="flex mb-4 cursor-pointer items-center gap-2 px-4"
           >
             <Image
               src={"/icons/logo.svg"}
@@ -48,10 +49,7 @@ const MoblieNavbar = ({ user }: MobileNavProps) => {
               L Banking
             </h1>
           </Link>
-          <SheetHeader>
-            <SheetTitle>Menu</SheetTitle>
-            <SheetDescription>Select an option from the menu below:</SheetDescription>
-          </SheetHeader>
+          
           <div className="mobilenav-sheet">
             <SheetClose asChild>
               <nav className="flex h-full flex-col gap-6 pt-16 text-white">
@@ -93,6 +91,7 @@ const MoblieNavbar = ({ user }: MobileNavProps) => {
               </nav>
             </SheetClose>
             {/* FOOTER */}
+            <Footer user={user} type="mobile" />
           </div>
         </SheetContent>
       </Sheet>
